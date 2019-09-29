@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "9dcf965c-7197-4a61-b54c-18d320ed3f61",
+		"name": "postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"item": [
+				{
+					"name": "登录成功",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "47080c1d-9ff5-4f20-811a-d94b5ea6f4b2",
+								"exec": [
+									"var token = pm.response.json().data; ",
+									"pm.globals.set(\"token\", \"Bearer \" + token);",
+									"",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\":\"13800000002\",\"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "{{url}}/api/sys/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"sys",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
